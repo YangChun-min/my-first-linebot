@@ -61,7 +61,6 @@ def callback():
         handler.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
-
     return 'OK'
 # ********* 以上為 X-LINE-SIGNATURE 驗證程序 *********
 
