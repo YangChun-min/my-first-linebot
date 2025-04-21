@@ -1,6 +1,6 @@
 第一次推送到GitHub
 git init
-git add add .
+git add .
 git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/YangChun-min/my-first-linebot.git
