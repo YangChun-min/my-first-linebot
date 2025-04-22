@@ -9,8 +9,8 @@ from linebot.models import (
 faq = {
     '營業時間':TextSendMessage(text='全年無休，︁但每天營業一秒'),
     '貼圖': StickerSendMessage(
-        package_id='5',
-        sticker_id='5'
+        package_id='11537',
+        sticker_id='52002735'
     ),
     '門市照片': ImageSendMessage(
         original_content_url='https://picsum.photos/id/395/900/400',
