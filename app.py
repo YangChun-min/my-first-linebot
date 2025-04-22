@@ -29,9 +29,7 @@ from linebot.models import (
     CarouselTemplate,
     CarouselColumn
 )
-from modules.reply import faq, menu
-from modules.currency import get_exchange_table
-table=get_exchange_table()
+
 
 # 定義應用程式是一個Flask類別產生的實例
 app = Flask(__name__)
@@ -63,7 +61,9 @@ def callback():
         abort(400)
     return 'OK'
 # ********* 以上為 X-LINE-SIGNATURE 驗證程序 *********
-
+from modules.reply import faq, menu
+from modules.currency import get_exchange_table
+table=get_exchange_table()
 # 文字訊息傳入時的處理器
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -100,8 +100,12 @@ def handle_sticker_message(event):
     print(str(event))
 
     # 準備要回傳的貼圖訊息
-    # HINT: 機器人可用的貼圖 https://devdocs.line.me/files/sticker_list.pdf
-    reply = StickerSendMessage(package_id='2', sticker_id='149')
+    user_sticker_msg=event.message.text
+    if user_sticker_msg in faq:
+        reply=faq[user_sticker_msg]
+    else:
+        reply=StickerMessage(package_id='11537',sticker_id='52002759')
+
 
     # 回傳訊息
     line_bot_api.reply_message(
