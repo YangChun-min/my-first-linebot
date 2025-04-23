@@ -8,23 +8,26 @@ from linebot.models import (
 # 常見問答表
 faq = {
     '營業時間':TextSendMessage(text='全年無休，︁但每天營業一秒'),
-    '貼圖': StickerSendMessage(
-        package_id='11537',
-        sticker_id='52002735'
-    ),
+    '貼圖或表情符號': TextSendMessage(text='請問想要貼圖還是表情符號?',
+                          quick_reply=QuickReply(items=[
+                              QuickReplyButton(action=MessageAction(label='貼圖',text='貼圖')),
+                              QuickReplyButton(action=MessageAction(label='表情符號',text='表情符號'))])
+                          ),
+    '貼圖':StickerSendMessage(package_id='8525',sticker_id='16581294'),
+    '表情符號':TextSendMessage(text='你要的表情是 $ ',
+                           emojis=[{"index": 7,
+                                    "productId": "5ac1bfd5040ab15980c9b435",
+                                    "emojiId": "001"
+                                    }]),
+
     '門市照片': ImageSendMessage(
         original_content_url='https://picsum.photos/id/395/900/400',
         preview_image_url='https://picsum.photos/id/395/900/400'
     ),
     '交通': TextSendMessage(text='請問您想使用何種方式前往？',
                           quick_reply=QuickReply(items=[
-                              QuickReplyButton(action=MessageAction(
-                                  label="搭乘捷運", text="捷運")
-                              ),
-                              QuickReplyButton(action=MessageAction(
-                                  label="搭乘公車", text="公車")
-                              )
-                          ])
+                              QuickReplyButton(action=MessageAction(label="搭乘捷運", text="捷運")),
+                              QuickReplyButton(action=MessageAction(label="搭乘公車", text="公車"))])
                           ),
     '捷運': TextSendMessage(text="搭乘捷運至南港展覽館辦場鋼彈觀光展看鋼彈吊單槓往上"),
     '公車':TextSendMessage(text='搭乘龍貓公車到台北車站'),
@@ -145,6 +148,18 @@ menu = TemplateSendMessage(
                     URIAction(
                         label='官方網站',
                         uri='https://www.google.com/search?q=nba&rlz=1C1RXQR_zh-TWTW944TW944&oq=nba&gs_lcrp=EgZjaHJvbWUqCggAEAAY4wIYgAQyCggAEAAY4wIYgAQyBwgBEC4YgAQyDQgCEAAYgwEYsQMYgAQyDQgDEAAYgwEYsQMYgAQyDQgEEAAYgwEYsQMYgAQyDQgFEAAYgwEYsQMYgAQyDQgGEAAYgwEYsQMYgAQyDQgHEAAYgwEYsQMYgAQyDQgIEAAYgwEYsQMYgAQyDQgJEAAYgwEYsQMYgATSAQg1NjQ0ajBqN6gCCLACAfEFtDLUdEBxHuA&sourceid=chrome&ie=UTF-8#sie=lg;/g/11y43tsvgm;3;/m/05jvx;mt;fp;1;;;'
+                    )
+                ]
+            ),
+            CarouselColumn(
+                # 卡片三圖片網址
+                thumbnail_image_url='https://www.pixelstalk.net/wp-content/uploads/images6/Free-download-Michael-Jordan-Wallpaper.jpg',
+                title='主選單三',
+                text='點選下方按鈕開始互動',
+                actions=[
+                    MessageAction(
+                        label='貼圖或表情符號',
+                        text='貼圖或表情符號'
                     )
                 ]
             )

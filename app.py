@@ -100,11 +100,7 @@ def handle_sticker_message(event):
     print(str(event))
 
     # 準備要回傳的貼圖訊息
-    user_sticker_msg=event.message.text
-    if user_sticker_msg in faq:
-        reply=faq[user_sticker_msg]
-    else:
-        reply=StickerMessage(package_id='11537',sticker_id='52002759')
+    reply=StickerMessage(package_id='11537',sticker_id='52002759')
 
 
     # 回傳訊息
