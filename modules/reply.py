@@ -151,18 +151,6 @@ menu = TemplateSendMessage(
                     )
                 ]
             ),
-            CarouselColumn(
-                # 卡片三圖片網址
-                thumbnail_image_url='https://www.pixelstalk.net/wp-content/uploads/images6/Free-download-Michael-Jordan-Wallpaper.jpg',
-                title='主選單三',
-                text='點選下方按鈕開始互動',
-                actions=[
-                    MessageAction(
-                        label='貼圖或表情符號',
-                        text='貼圖或表情符號'
-                    )
-                ]
-            )
         ]
     )
 )
