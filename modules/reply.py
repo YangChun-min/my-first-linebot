@@ -10,9 +10,13 @@ faq = {
     '營業時間':TextSendMessage(text='全年無休，︁但每天營業一秒'),
     '貼圖或表情符號': TextSendMessage(text='請問想要貼圖還是表情符號?',
                           quick_reply=QuickReply(items=[
-                              QuickReplyButton(action=MessageAction(label='貼圖',text='貼圖')),
-                              QuickReplyButton(action=MessageAction(label='表情符號',text='表情符號'))])
-                          ),
+                              QuickReplyButton(action=MessageAction(
+                                  label='貼圖',text='貼圖')),
+                              QuickReplyButton(action=MessageAction(
+                                  label='表情符號',text='表情符號'))
+                                    ]
+                                )
+                            ),
     '貼圖':StickerSendMessage(package_id='8525',sticker_id='16581294'),
     '表情符號':TextSendMessage(text='你要的表情是 $ ',
                            emojis=[{"index": 7,

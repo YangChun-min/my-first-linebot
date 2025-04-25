@@ -36,6 +36,7 @@ rich_menu_to_create = RichMenu(
             bounds=RichMenuBounds(x=1666, y=843, width=416, height=843),
             action=MessageAction(label="交通資訊", text="交通")
         ),
+        # 第三列
         RichMenuArea(
             bounds=RichMenuBounds(x=2082, y=843, width=418, height=843),
             action=URIAction(label="官方網站", uri="https://www.google.com/search?q=nba&rlz=1C1RXQR_zh-TWTW944TW944&oq=nba&gs_lcrp=EgZjaHJvbWUqCggAEAAY4wIYgAQyCggAEAAY4wIYgAQyBwgBEC4YgAQyDQgCEAAYgwEYsQMYgAQyDQgDEAAYgwEYsQMYgAQyDQgEEAAYgwEYsQMYgAQyDQgFEAAYgwEYsQMYgAQyDQgGEAAYgwEYsQMYgAQyDQgHEAAYgwEYsQMYgAQyDQgIEAAYgwEYsQMYgAQyDQgJEAAYgwEYsQMYgATSAQg1NjQ0ajBqN6gCCLACAfEFtDLUdEBxHuA&sourceid=chrome&ie=UTF-8#sie=lg;/g/11y43tsvgm;3;/m/05jvx;mt;fp;1;;;")
@@ -45,7 +46,7 @@ rich_menu_to_create = RichMenu(
 # 建立選單並取得 ID
 rich_menu_id = line_bot_api.create_rich_menu(rich_menu=rich_menu_to_create)
 # 上傳圖片
-with open("assets/喬丹和柯比.png", "rb") as image_file:
+with open("喬丹和柯比.png", "rb") as image_file:
     line_bot_api.set_rich_menu_image(rich_menu_id, "image/png", image_file)
 # 設為預設選單（所有人都會看到）
 line_bot_api.set_default_rich_menu(rich_menu_id)
